@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const Manager = require("./lib/manager");
 
 const managerQuestion = [
     {
@@ -19,7 +20,14 @@ const managerQuestion = [
     },
     {
         type: "input",
-        name: "officenum",
+        name: "officeNumber",
         message: "Enter manger's office number:",
     },
+    {
+        type: "list",
+        name: "hasTeam",
+        message: "Do you have any team members?",
+        choices: ["Yes", 
+        "No"]
+    }
 ]
