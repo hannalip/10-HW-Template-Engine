@@ -3,15 +3,16 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const Inquirer = require('inquirer');
+const Render = require("./lib/htmlRender");
 const fs = require('fs');
 
 var teamMembers = [];
 
 //Create Objects of team members
-const appMenu = async () => {
+const myTeamApp = async () => {
     // Create Manager object
     const createManager = async () => {
-        const answer = await Inquirer.prompt([
+        const managerInfo = await Inquirer.prompt([
             {
                 type: 'input',
                 name: 'name',
@@ -34,10 +35,10 @@ const appMenu = async () => {
             }
         ]);
         const manager = await new Manager(
-            this.name,
-            this.id,
-            this.email,
-            this.officeNum
+            managerInfo.name,
+            managerInfo.id,
+            managerInfo.email,
+            managerInfo.officeNum
         );
         await teamMembers.push(manager);
         console.log('team members', teamMembers);
@@ -61,12 +62,12 @@ const appMenu = async () => {
             await createTeam();
         } else {
             //Return Array of team member objects
-            return teamMembers;
+            Render(teamMembers);
         }
     };
     //Function to create intern object
     async function createIntern() {
-        const answer = await Inquirer.prompt([
+        const internInfo = await Inquirer.prompt([
             {
                 type: 'input',
                 message: 'Enter your name',
@@ -88,18 +89,18 @@ const appMenu = async () => {
                 name: 'school'
             }
         ]);
-        const newIntern = await new Intern(
-            this.name,
-            this.id,
-            this.email,
-            this.school
+        const intern = await new Intern(
+            internInfo.name,
+            internInfo.id,
+            internInfo.email,
+            internInfo.school
         );
 
-        await teamMembers.push(newIntern);
+        await teamMembers.push(intern);
     }
     //Function to create Engineer Object
     async function createEngineer() {
-        const answer = await Inquirer.prompt([
+        const engineerInfo = await Inquirer.prompt([
             {
                 type: 'input',
                 message: 'Enter your name',
@@ -121,18 +122,18 @@ const appMenu = async () => {
                 name: 'github'
             }
         ]);
-        const newEngineer = await new Engineer(
-            this.name,
-            this.id,
-            this.email,
-            this.github
+        const engineer = await new Engineer(
+            engineerInfo.name,
+            engineerInfo.id,
+            engineerInfo.email,
+            engineerInfo.github
         );
 
-        await teamMembers.push(newEngineer);
+        await teamMembers.push(engineer);
     }
 
     await createManager();
     await createTeam();
 };
 
-appMenu();
+myTeamApp();
