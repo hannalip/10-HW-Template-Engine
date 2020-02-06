@@ -1,12 +1,12 @@
 # 10-HW-Template-Engine
 
-* [Screenshot] ![My Team](./ScreenShot.png)
-* [`Git Hub](https://github.com/hannalip/10-HW-Template-Engine)
-* [`Demo Site'](https://hannalip.github.io/10-HW-Template-Engine/)
+* [`Screenshot`] ![My Team](./ScreenShot.png)
+* [`Git Hub`](https://github.com/hannalip/10-HW-Template-Engine)
+* [`Demo Site`](https://hannalip.github.io/10-HW-Template-Engine/)
 * [`JavaScript`](app.js)
 * [`Test`](..test.js)
-* [`Templates`](engineer.html, index.html, intern.html, manager.html)
-* [`Lib`](engineer.js, employee.js, intern.js, manager.js)
+* [`/Templates`](engineer.html, index.html, intern.html, manager.html)
+* [`/Lib`](engineer.js, employee.js, intern.js, manager.js)
 * [`JSON`](package.json)
 * [`JSON`](package-lock.json)
 * [`gitgnore`]
